@@ -1,5 +1,6 @@
 package repository
 
+//entity
 type Customer struct {
 	CustomerID  int			`db:"customer_id"`
 	Name			  string	`db:"name"`

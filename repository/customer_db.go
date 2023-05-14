@@ -22,5 +22,11 @@ func (r customerRepositoryDB) GetAll() ([]Customer, error) {
 }
 
 func (r customerRepositoryDB) GetById(id int) (*Customer, error) {
-	return nil, nil
+	customer := Customer{}
+	query := "select * from customers where customer_id = $1"
+	err := r.db.Get(&customer, query, id)
+	if err != nil {
+		return nil, err
+	}
+	return &customer, nil
 }
